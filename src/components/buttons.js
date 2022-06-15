@@ -3,7 +3,7 @@ import '../css/button.css'
 
 const ButtonB = ({ labelButton, className = 'accesButton' }) => {
   return (
-    <button className={className}>
+    <button className={` ${className}`}>
       {labelButton}
     </button>
   )
