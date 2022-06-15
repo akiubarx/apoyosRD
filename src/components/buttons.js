@@ -1,9 +1,11 @@
 import React from "react";
+import '../css/button.css'
 
-
-const ButtonB = ({labelButton}) =>{
-  return(
-    <button>{labelButton}</button>
+const ButtonB = ({ labelButton, className = 'accesButton' }) => {
+  return (
+    <button className={className}>
+      {labelButton}
+    </button>
   )
 }
 

@@ -1,15 +1,17 @@
-.accesButton, .editButton, .deleteButton{
-  padding: .7em;
+.accesButton,
+.editButton,
+.deleteButton {
+  padding: 0.7em;
   width: auto;
   min-width: 200px;
 }
-.accesButton{
+.accesButton {
   background-color: rgb(1, 105, 1);
-  font-style: italic!important;
+  font-style: italic !important;
 }
-.editButton{
+.editButton {
   background-color: rgb(105, 179, 240);
 }
-.deleteButton{
+.deleteButton {
   background-color: rgba(168, 0, 0, 0.795);
 }
