@@ -1,16 +1,18 @@
-import  Acceso  from './components/acceso.js';
+import  Acceso  from './components/acceso.jsx';
+import  NaviBar  from './components/naviBar.jsx';
 import  ButtonB  from './components/buttons.js';
 import  './css/style.css';
 import { Button } from 'react-bootstrap';
+import Carpetas from "./pages/carpetas";
+import {Outlet} from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
+      <NaviBar></NaviBar>
+      <Outlet></Outlet>
       <Acceso></Acceso>
-      <ButtonB labelButton='Acceder'></ButtonB>
-      <ButtonB labelButton='Registrar' className='editButton'></ButtonB>
-      <ButtonB labelButton='Olvide mi contraseña' className='deleteButton'></ButtonB>
-      <Button className='AccesButton'>Desde Bootstrap</Button>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+.adminDiv{
+  border: 1px solid #C4C4C4;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 4em 2em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+.adminDiv h1{
+  text-align: center;
+  margin-bottom: 1em;
+}
