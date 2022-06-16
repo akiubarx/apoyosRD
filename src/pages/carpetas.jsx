@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Table, Navbar, Form, FormControl, Button } from 'react-bootstrap';
-import NaviBar from '../components/naviBar.jsx';
+/* import NaviBar from '../components/naviBar.jsx'; */
 
 const Carpetas = () =>{
   return(
     <>
-      <NaviBar></NaviBar>
+      {/* <NaviBar></NaviBar> */}
       <h1>Carpetas</h1>
       <Navbar bg="light" expand="lg">
         <Container fluid>
