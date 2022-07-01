@@ -6,6 +6,7 @@
 .accesButton {
   background-color: rgb(1, 105, 1);
   font-style: italic !important;
+  color: #959595!important;
 }
 .editButton {
   background-color: rgb(105, 179, 240);

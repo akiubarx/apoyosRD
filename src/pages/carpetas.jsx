@@ -1,58 +1,55 @@
 import React from 'react';
 import { Container, Table, Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import '../css/button.css';
 /* import NaviBar from '../components/naviBar.jsx'; */
 
 const Carpetas = () =>{
   return(
-    <>
+    <div className="px-4">
       {/* <NaviBar></NaviBar> */}
-      <h1>Carpetas</h1>
+      <h1 className="text-center text-5xl font-medium	my-8 text-zinc-600">Carpetas</h1>
       <Navbar bg="light" expand="lg">
         <Container fluid>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex">
+            <Form className="grid grid-cols-12 gap-2 w-full">
               <FormControl
                 type="search"
-                placeholder="Search"
-                className="me-2"
+                placeholder="Buscar"
+                className="me-2 col-span-11"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" className="col-end-13">Buscar</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Table striped bordered hover variant="dark">
+      <div className="blueLine"></div>
+      <Table striped bordered hover variant="dark" className="table-fixed">
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th className="text-center">ID</th>
+            <th className="text-center">Nombre</th>
+            <th className="text-center">ID Sup</th>
+            <th className="text-center">Carpeta Superior</th>
+            <th className="text-center">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
+          <tr className="align-middle">
+            <td className="text-center">1</td>
+            <td>Programa Manejo Forestal No Maderable</td>
+            <td className="text-center">4</td>
+            <td>Anexos</td>
+            <td>
+              <button type="button" className="actionButtonVer">Ver</button>
+              <button type="button" className="actionButtonEditar">Editar</button>
+              <button type="button" className="actionButtonEliminar">Eliminar</button>
+            </td>
           </tr>
         </tbody>
       </Table>
-    </>
+    </div>
   )
 }
 

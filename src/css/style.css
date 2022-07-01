@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .adminDiv{
   border: 1px solid #C4C4C4;
   max-width: 600px;
@@ -9,4 +13,26 @@
 .adminDiv h1{
   text-align: center;
   margin-bottom: 1em;
+}
+.actionButtonVer,.actionButtonEditar,.actionButtonEliminar{
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 0 5px;
+  box-sizing: border-box;
+}
+.actionButtonEliminar{
+  background-color: #F35A5A;
+}
+.actionButtonEditar{
+  background-color: #6B9CCC;
+}
+.actionButtonVer{
+  background-color: #94B4B3;
+}
+.blueLine{
+  background-color: #71B8B3;
+  min-height: 10px;
+  width: 100%;
+  margin: 1em 0;
 }
