@@ -30,5 +30,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
+/* Regreso al proyecto */
 export default App;
