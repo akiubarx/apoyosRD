@@ -1,0 +1,16 @@
+.grl-button {
+  padding: 0.7em;
+  width: auto;
+  min-width: 200px;
+}
+.accesButton {
+  background-color: rgb(1, 105, 1);
+  font-style: italic !important;
+  color: #959595!important;
+}
+.editButton {
+  background-color: rgb(105, 179, 240);
+}
+.deleteButton {
+  background-color: rgba(168, 0, 0, 0.795);
+}
