@@ -13,6 +13,7 @@
 }
 .editButton {
   background-color: rgb(105, 179, 240)!important;
+  color: #fff!important;
   border: none;
 }
 .editButton:hover {

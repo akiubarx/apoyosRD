@@ -14,6 +14,8 @@ import  ConfirmarCuenta  from './pages/ConfirmarCuenta.jsx';
 import  './css/style.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+console.log(process.env.BACKEND_URL);
+
 function App() {
   return (
     <BrowserRouter>
