@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <div className='xl:flex md:min-h-screen'>
+    <div className='md:min-h-screen'>
       <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
@@ -22,7 +22,7 @@ const Layout = () => {
             </div>
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-white px-3 py-2 rounded-md text-sm font-medium">Sistema de Apoyos</span>
+                <span className="text-white px-3 py-2 rounded-md text-sm font-medium"><a href="/admin/inicio">Sistema de Apoyos</a></span>
                 {/* <img className="block lg:hidden h-8 w-auto" src="" alt="Workflow"/>
                 <img className="hidden lg:block h-8 w-auto" src="" alt="Workflow"/> */}
               </div>
