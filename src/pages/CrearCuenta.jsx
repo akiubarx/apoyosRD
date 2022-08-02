@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react'
-import { Container, Row, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import '../css/button.css';
 import { Alerta } from '../components/Alertas.jsx'
 const Acceso = () => {
@@ -28,7 +28,7 @@ const Acceso = () => {
   return (
     <>
       <div className='adminDiv'>
-        <Row className='container mx-auto mt-1 md:mt-20 p-2 md:flex md:justify-center'>
+        <div className='container mx-auto mt-1 md:mt-20 p-2 md:flex md:justify-center'>
           <form className='md:w-4/5 lg:1/2 p-3 shadow rounded-lg' onSubmit={handleSubmit}>
             <h1 className="text-4xl">Crear Cuenta</h1>
             {/* Inicia Formulario */}
@@ -80,13 +80,13 @@ const Acceso = () => {
               />
             </div>
             {/* Termina Formulario */}
-            <Button className='editButton w-full my-2 p-2 rounded-xl'  type='submit' value='Crear Cuenta'>Crear Cuenta</Button>
-            <Button className='deleteButton w-full my-2 p-2 rounded-xl'  href="/recuperar-password" >Cancelar</Button>
+            <input className='editButton w-full my-2 p-2 rounded-xl'  type='submit' value='Crear Cuenta'/>
+            <Link className='deleteButton w-full my-2 p-2 rounded-xl'  to="/recuperar-password" >Cancelar</Link>
 
             {msg && <Alerta alerta={alerta}/>}
 
           </form>
-        </Row>
+        </div>
       </div>
     </>
   )
