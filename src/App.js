@@ -13,8 +13,10 @@ import  CrearCuenta  from './pages/CrearCuenta.jsx';
 import  ConfirmarCuenta  from './pages/ConfirmarCuenta.jsx';
 import  './css/style.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+/* import { SiteUrl } from './helpers/routes.js' */
 
-console.log(process.env.BACKEND_URL);
+/* console.log(SiteUrl)
+console.log(process.env.REACT_APP_BACKEND_URL); */
 
 function App() {
   return (

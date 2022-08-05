@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import '../css/button.css';
 import { Alerta } from '../components/Alertas.jsx'
 import axios from 'axios';
+import { SiteUrl } from '../helpers/routes.js'
 
 const Acceso = () => {
   /* Se agregan los states para la comunicacion con la API */
@@ -42,12 +43,13 @@ const Acceso = () => {
     setAlerta({})
     //Pasamos a crear usuario en la API
     try {
-      const { data } = await axios.post('http://localhost:4000/api/usuarios', {username, email, password})
+      const { data } = await axios.post(`${SiteUrl}/api/usuarios`, {username, email, password})
       setAlerta({
         msg: data.msg,
         error: false
       })
 
+      //Se limpia el state
       setNombre('');
       setCorreo('');
       setPassword('');

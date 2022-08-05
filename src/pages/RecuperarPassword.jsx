@@ -1,7 +1,10 @@
-import React from "react";
+import {React, useState} from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import '../css/button.css';
-const Acceso = () => {
+const RecuperarPassword = () => {
+
+  const [ email, setEmail ] = useState('');//Los states cachan los datos del sitio, los leen y envian
+
   return (
     <>
       <Container className='adminDiv'>
@@ -23,4 +26,4 @@ const Acceso = () => {
   )
 }
 
-export default Acceso;
+export default RecuperarPassword;
