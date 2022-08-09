@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Alerta } from '../components/Alertas.jsx';
@@ -8,11 +8,10 @@ import '../css/button.css';
 import { SiteUrl } from '../helpers/routes.js';
 const ConfirmarCuenta = () => {
   const params = useParams();
-  console.log(params);
   const { id } = params;
   const [alerta, setAlerta] = useState({});
   const [ cuentaConfirmada, setcuentaConfirmada] = useState(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const confirmarCuenta = async () => {
       try {
         const url = `${SiteUrl}/api/usuarios/confirmar/${id}`;//Importante agregar la "/" despues de ${SiteUrl}

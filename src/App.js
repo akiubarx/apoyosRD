@@ -14,6 +14,7 @@ import  ConfirmarCuenta  from './pages/ConfirmarCuenta.jsx';
 import  './css/style.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 /* import { SiteUrl } from './helpers/routes.js' */
+import { AuthProvider } from './context/AuthProvider.jsx'
 
 /* console.log(SiteUrl)
 console.log(process.env.REACT_APP_BACKEND_URL); */
@@ -21,24 +22,26 @@ console.log(process.env.REACT_APP_BACKEND_URL); */
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<IniciarSesion />}>
-          <Route index element={<Acceso/>}/>
-          <Route path="recuperar-password" element={<RecuperarPassword />}/>
-          <Route path="recuperar-password/:token" element={<NuevoPassword />}/>
-          <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
-        </Route>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<IniciarSesion />}>
+            <Route index element={<Acceso/>}/>
+            <Route path="recuperar-password" element={<RecuperarPassword />}/>
+            <Route path="recuperar-password/:token" element={<NuevoPassword />}/>
+            <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
+          </Route>
 
-        <Route path="/admin" element={<Layout />}>
-          <Route index path="Inicio" element={<Inicio/>}/>
-          <Route path="Carpetas" element={<Carpetas/>}/>
-          <Route path="Apoyos" element={<Apoyos/>}/>
-          <Route path="Archivos" element={<Archivos/>}/>
-          <Route path="Usuarios" element={<Usuarios/>}/>
-          <Route path="Permisos" element={<Permisos/>}/>
-          <Route path="Registrar" element={<CrearCuenta />}/>
-        </Route>
-      </Routes>
+          <Route path="/admin" element={<Layout />}>
+            <Route index path="Inicio" element={<Inicio/>}/>
+            <Route path="Carpetas" element={<Carpetas/>}/>
+            <Route path="Apoyos" element={<Apoyos/>}/>
+            <Route path="Archivos" element={<Archivos/>}/>
+            <Route path="Usuarios" element={<Usuarios/>}/>
+            <Route path="Permisos" element={<Permisos/>}/>
+            <Route path="Registrar" element={<CrearCuenta />}/>
+          </Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

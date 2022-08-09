@@ -6,9 +6,13 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //Usar para Desarrollo - Causa doble render del aplicativo
   <React.StrictMode>
     <App />
   </React.StrictMode>
+
+  //Usara para Produccion
+  //7<App />
 );
 
 // If you want to start measuring performance in your app, pass a function
