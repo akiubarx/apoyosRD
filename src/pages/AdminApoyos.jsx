@@ -1,6 +1,6 @@
 import React from "react";
 
-const Apoyos = () => {
+const AdminApoyos = () => {
   return (
     <>
       <h1>Tabla de Apoyos</h1>
@@ -8,4 +8,4 @@ const Apoyos = () => {
   )
 }
 
-export default Apoyos;
+export default AdminApoyos;

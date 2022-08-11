@@ -1,16 +1,23 @@
-import  IniciarSesion  from './layout/IniciarSesion.jsx';
-import  Layout  from './layout/Layout.jsx';
+//Layout
+import  AccesoLayout  from './layout/AccesoLayout.jsx';
+import  PublicLayout  from './layout/PublicLayout.jsx';
+import  AdminLayout  from './layout/AdminLayout.jsx';
+//Routes Public
+import  Acceso  from './pages/Acceso.jsx';
+import  Inicio  from './pages/InicioPublico.jsx';
+import  Carpetas  from './pages/CarpetasPublicas.jsx';
+import  ConfirmarCuenta  from './pages/ConfirmarCuenta.jsx';
 import  RecuperarPassword  from './pages/RecuperarPassword.jsx';
 import  NuevoPassword  from './pages/NuevoPassword.jsx';
-import  Acceso  from './pages/Acceso.jsx';
-import  Inicio  from './pages/Inicio.jsx';
-import  Carpetas  from './pages/Carpetas.jsx';
-import  Apoyos  from './pages/Apoyos.jsx';
-import  Archivos  from './pages/Archivos.jsx';
-import  Usuarios  from './pages/Usuarios.jsx';
-import  Permisos  from './pages/Permisos.jsx';
-import  CrearCuenta  from './pages/CrearCuenta.jsx';
-import  ConfirmarCuenta  from './pages/ConfirmarCuenta.jsx';
+//Routes Admin
+import  AdminInicio  from './pages/AdminInicio.jsx';
+import  AdminCarpetas  from './pages/AdminCarpetas.jsx';
+import  AdminApoyos  from './pages/AdminApoyos.jsx';
+import  AdminArchivos  from './pages/AdminArchivos.jsx';
+import  AdminUsuarios  from './pages/AdminUsuarios.jsx';
+import  AdminPermisos  from './pages/AdminPermisos.jsx';
+import  AdminCrearCuenta  from './pages/AdminCrearCuenta.jsx'
+//
 import  './css/style.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 /* import { SiteUrl } from './helpers/routes.js' */
@@ -24,21 +31,26 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<IniciarSesion />}>
-            <Route index element={<Acceso/>}/>
+          <Route path="/" element={<PublicLayout />}>
+            <Route index element={<Inicio/>}/>   
+            <Route path="Carpetas" element={<Carpetas/>}/>            
             <Route path="recuperar-password" element={<RecuperarPassword />}/>
             <Route path="recuperar-password/:token" element={<NuevoPassword />}/>
             <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
           </Route>
 
-          <Route path="/admin" element={<Layout />}>
-            <Route index path="Inicio" element={<Inicio/>}/>
-            <Route path="Carpetas" element={<Carpetas/>}/>
-            <Route path="Apoyos" element={<Apoyos/>}/>
-            <Route path="Archivos" element={<Archivos/>}/>
-            <Route path="Usuarios" element={<Usuarios/>}/>
-            <Route path="Permisos" element={<Permisos/>}/>
-            <Route path="Registrar" element={<CrearCuenta />}/>
+          <Route path="/login" element={<AccesoLayout />}>
+            <Route path="Acceso" element={<Acceso/>}/>
+          </Route>
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminInicio/>}/>
+            <Route path="Carpetas" element={<AdminCarpetas/>}/>
+            <Route path="Apoyos" element={<AdminApoyos/>}/>
+            <Route path="Archivos" element={<AdminArchivos/>}/>
+            <Route path="Usuarios" element={<AdminUsuarios/>}/>
+            <Route path="Permisos" element={<AdminPermisos/>}/>
+            <Route path="Registrar" element={<AdminCrearCuenta />}/>
           </Route>
         </Routes>
       </AuthProvider>

@@ -3,8 +3,8 @@ import { Container, Table, Navbar, Form, FormControl, Button } from 'react-boots
 import '../css/button.css';
 /* import NaviBar from '../components/naviBar.jsx'; */
 
-const Carpetas = () =>{
-  return(
+const Carpetas = () => {
+  return (
     <div className="px-4">
       {/* <NaviBar></NaviBar> */}
       <h1 className="text-center text-5xl font-medium	my-8 text-zinc-600">Carpetas</h1>
@@ -43,8 +43,6 @@ const Carpetas = () =>{
             <td>Anexos</td>
             <td>
               <button type="button" className="actionButtonVer">Ver</button>
-              <button type="button" className="actionButtonEditar">Editar</button>
-              <button type="button" className="actionButtonEliminar">Eliminar</button>
             </td>
           </tr>
         </tbody>

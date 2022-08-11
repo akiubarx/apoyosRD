@@ -5,7 +5,7 @@ import { Alerta } from '../components/Alertas.jsx'
 import axios from 'axios';
 import { SiteUrl } from '../helpers/routes.js'
 
-const Acceso = () => {
+const AdminCrearCuenta = () => {
   /* Se agregan los states para la comunicacion con la API */
   const [ username, setNombre ] = useState('')
   const [ email, setCorreo ] = useState('')
@@ -129,4 +129,4 @@ const Acceso = () => {
   )
 }
 
-export default Acceso;
+export default AdminCrearCuenta;

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-const IniciarSesion = () => {
+const PublicLayout = () => {
   return (
     <>
       <main className='container mx-auto mt-5 md:mt-20 p-5 md:flex md:justify-center'>
@@ -12,4 +12,4 @@ const IniciarSesion = () => {
   )
 }
 
-export default IniciarSesion;
+export default PublicLayout;

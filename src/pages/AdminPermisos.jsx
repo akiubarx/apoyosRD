@@ -1,6 +1,6 @@
 import React from "react";
 
-const Permisos = () => {
+const AdminPermisos = () => {
   return (
     <>
       <h1>Tabla de Permisos</h1>
@@ -8,4 +8,4 @@ const Permisos = () => {
   )
 }
 
-export default Permisos;
+export default AdminPermisos;

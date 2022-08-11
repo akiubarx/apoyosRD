@@ -13,7 +13,7 @@ const Acceso = () =>{
   const [ password, setPassword ] = useState('');
   const [ alerta, setAlerta ] = useState({});
 
-  const {  } = UseAuth();
+  const { setAuth } = UseAuth()
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -38,6 +38,7 @@ const Acceso = () =>{
       //Se limpia el state
       setUsername('');
       setPassword('');
+      setAuth(data);
     } catch (error) {
       setAlerta({
         msg: error.response.data.msg,
