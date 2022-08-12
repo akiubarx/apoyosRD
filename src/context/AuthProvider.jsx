@@ -29,7 +29,7 @@ const AuthProvider = ({children}) => {//Se le pasan todos los componentes para q
       try {
         const {data} = await axios(`${SiteUrl}/api/usuarios/perfil`, config)
         setAuth(data)
-        navigate('/admin')
+        navigate('/')//Revisar este navigate
       } catch (error) {
         setAuth({})
       } finally {
