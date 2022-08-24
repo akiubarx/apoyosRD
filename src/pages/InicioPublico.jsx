@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Table, Navbar, Form, FormControl, Button } from 'react-bootstrap';
-import '../css/button.css';
 /* import NaviBar from '../components/naviBar.jsx'; */
 
 const Inicio = () => {

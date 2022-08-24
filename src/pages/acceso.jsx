@@ -1,11 +1,11 @@
 import { React, useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Container, Row, Button } from 'react-bootstrap';
 import { Alerta } from '../components/Alertas.jsx';
 import { SiteUrl } from '../helpers/routes.js';
 import axios from 'axios';
-import '../css/button.css';
-import { UseAuth } from '../hooks/UseAuth.jsx';
+import { useAuth } from '../hooks/UseAuth.jsx';
+
 
 const Acceso = () =>{
 
@@ -13,7 +13,9 @@ const Acceso = () =>{
   const [ password, setPassword ] = useState('');
   const [ alerta, setAlerta ] = useState({});
 
-  const { setAuth } = UseAuth()
+  const navigate = useNavigate();
+
+  const { setAuth } = useAuth()
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -30,7 +32,8 @@ const Acceso = () =>{
     //Pasamos a Resetear el Password del usuario
     try {
       const { data } = await axios.post(`${SiteUrl}/api/usuarios/login/`, { username, password })
-      sessionStorage.setItem('token', data.token)
+      localStorage.setItem('token', data.token)
+      //sessionStorage.setItem('token', data.token)
       setAlerta({
         msg: data.msg,
         error: false
@@ -39,7 +42,9 @@ const Acceso = () =>{
       setUsername('');
       setPassword('');
       setAuth(data);
+      navigate('/admin', {replace:true});
     } catch (error) {
+      console.log(error)
       setAlerta({
         msg: error.response.data.msg,
         error: true
@@ -47,23 +52,7 @@ const Acceso = () =>{
     }
   }
 
-  /////////
-
-  /* useEffect(() => {
-    const accesoUsuario = async () => {
-      try {
-        await axios(`${SiteUrl}/api/usuarios/login/`)
-      } catch (error) {
-        setAlerta({
-          msg: error.response.data.msg,
-          error: true
-        })//Accedemos al error del BE
-      }
-    }
-    accesoUsuario();
-  }, []) */
-
-  /////////
+  //
 
   const { msg } = alerta;
 
@@ -99,7 +88,7 @@ const Acceso = () =>{
             </div>
             {/* Termina Formulario */}
             <Button className='accesButton w-full my-2 p-2 rounded-xl' type='submit' value='Iniciar Sesión'>Ingresar</Button>
-            <Button className='editButton w-full my-2 p-2 rounded-xl' href='/recuperar-password'>Recuperar Contraseña</Button>
+            <Button className='actionButtonEditar w-full my-2 p-2 rounded-xl' href='/recuperar-password'>Recuperar Contraseña</Button>
           </form>
           <div>
             {msg && <Alerta alerta={alerta} />}

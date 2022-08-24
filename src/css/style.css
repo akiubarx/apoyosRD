@@ -2,6 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+//General
+.fullWidth{
+  width: 100%;
+}
+
+//Buttons
+.grl-button {
+  padding: 0.7em;
+  width: auto;
+  min-width: 200px;
+}
+.accesButton,.actionButtonVer,.actionButtonEditar,.actionButtonEliminar{
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 0 5px;
+  box-sizing: border-box;
+  color: #fff;
+}
+.accesButton {
+  background-color: rgb(1, 105, 1)!important;
+}
+.accesButton:hover {
+  background-color: rgb(5, 65, 5)!important;
+}
+.actionButtonEliminar{
+  background-color: #F35A5A;
+}
+.actionButtonEliminar:hover{
+  background-color: #cb3f3f;
+}
+.actionButtonEditar{
+  background-color: #6B9CCC;
+}
+.actionButtonEditar:hover{
+  background-color: #5493d1;
+}
+.actionButtonVer{
+  background-color: #94B4B3;
+}
+.actionButtonVer:hover{
+  background-color: #99d3d1;
+  color: #fff;
+}
+//EndButtons
+
 .adminDiv{
   border-radius: 10px;
   padding: 4em 2em;
@@ -9,22 +55,6 @@
 .adminDiv h1{
   text-align: center;
   margin-bottom: 1em;
-}
-.actionButtonVer,.actionButtonEditar,.actionButtonEliminar{
-  padding: 5px 10px;
-  border: 1px solid white;
-  border-radius: 10px;
-  margin: 0 5px;
-  box-sizing: border-box;
-}
-.actionButtonEliminar{
-  background-color: #F35A5A;
-}
-.actionButtonEditar{
-  background-color: #6B9CCC;
-}
-.actionButtonVer{
-  background-color: #94B4B3;
 }
 .blueLine{
   background-color: #71B8B3;

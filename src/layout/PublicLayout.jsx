@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 const PublicLayout = () => {
   return (
@@ -21,18 +21,20 @@ const PublicLayout = () => {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <span className="text-white px-3 py-2 rounded-md text-sm font-medium"><a href="/">Sistema de Apoyos</a></span>
+                  <span className="text-white px-3 py-2 rounded-md text-sm font-medium"><Link to="/admin">Sistema de Apoyos</Link></span>
                   {/* <img className="block lg:hidden h-8 w-auto" src="" alt="Workflow"/>
                 <img className="hidden lg:block h-8 w-auto" src="" alt="Workflow"/> */}
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {/* <a href="/carpetas" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Carpertas</a> */}
-                    <a href="/carpetas" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Carpertas</a>
+                    <Link to="/carpetas" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Carpertas</Link>
 
-                    <a href="/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Archivos</a>
+                    <Link to="/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Archivos</Link>
 
-                    <a href="/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Apoyos</a>
+                    <Link to="/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Apoyos</Link>
+
+                    <Link to="/login/acceso" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Acceder</Link>
                   </div>
                 </div>
               </div>
@@ -53,11 +55,11 @@ const PublicLayout = () => {
           <div className="sm:hidden" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-              <a href="/carpetas" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Carpertas</a>
+              <Link to="/carpetas" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Carpertas</Link>
 
-              <a href="/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Archivos</a>
+              <Link to="/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Archivos</Link>
 
-              <a href="/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Apoyos</a>
+              <Link to="/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Apoyos</Link>
             </div>
           </div>
         </nav>

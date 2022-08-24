@@ -1,6 +1,5 @@
 import {React, useState} from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
-import '../css/button.css';
 import { Alerta } from '../components/Alertas.jsx'
 import { SiteUrl } from '../helpers/routes.js'
 import axios from 'axios';

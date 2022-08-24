@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Alerta } from '../components/Alertas.jsx';
 import { Container, Row } from 'react-bootstrap';
-import '../css/button.css';
 import { SiteUrl } from '../helpers/routes.js';
 const ConfirmarCuenta = () => {
   const params = useParams();

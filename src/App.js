@@ -12,6 +12,7 @@ import  NuevoPassword  from './pages/NuevoPassword.jsx';
 //Routes Admin
 import  AdminInicio  from './pages/AdminInicio.jsx';
 import  AdminCarpetas  from './pages/AdminCarpetas.jsx';
+import  NuevaCarpeta  from './pages/NuevaCarpeta.jsx';
 import  AdminApoyos  from './pages/AdminApoyos.jsx';
 import  AdminArchivos  from './pages/AdminArchivos.jsx';
 import  AdminUsuarios  from './pages/AdminUsuarios.jsx';
@@ -22,6 +23,7 @@ import  './css/style.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 /* import { SiteUrl } from './helpers/routes.js' */
 import { AuthProvider } from './context/AuthProvider.jsx'
+import { CarpetasProvider } from './context/CarpetasProvider.jsx'
 
 /* console.log(SiteUrl)
 console.log(process.env.REACT_APP_BACKEND_URL); */
@@ -30,29 +32,32 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<PublicLayout />}>
-            <Route index element={<Inicio/>}/>   
-            <Route path="Carpetas" element={<Carpetas/>}/>            
-            <Route path="recuperar-password" element={<RecuperarPassword />}/>
-            <Route path="recuperar-password/:token" element={<NuevoPassword />}/>
-            <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
-          </Route>
+        <CarpetasProvider>
+          <Routes>
+            <Route path="/" element={<PublicLayout />}>
+              <Route index element={<Inicio/>}/>   
+              <Route path="Carpetas" element={<Carpetas/>}/>            
+              <Route path="recuperar-password" element={<RecuperarPassword />}/>
+              <Route path="recuperar-password/:token" element={<NuevoPassword />}/>
+              <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
+            </Route>
 
-          <Route path="/login" element={<AccesoLayout />}>
-            <Route path="Acceso" element={<Acceso/>}/>
-          </Route>
+            <Route path="/login" element={<AccesoLayout />}>
+              <Route path="Acceso" element={<Acceso/>}/>
+            </Route>
 
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminInicio/>}/>
-            <Route path="Carpetas" element={<AdminCarpetas/>}/>
-            <Route path="Apoyos" element={<AdminApoyos/>}/>
-            <Route path="Archivos" element={<AdminArchivos/>}/>
-            <Route path="Usuarios" element={<AdminUsuarios/>}/>
-            <Route path="Permisos" element={<AdminPermisos/>}/>
-            <Route path="Registrar" element={<AdminCrearCuenta />}/>
-          </Route>
-        </Routes>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminInicio/>}/>
+              <Route path="Carpetas" element={<AdminCarpetas/>}/>
+              <Route path="nueva-carpeta" element={<NuevaCarpeta/>}/>
+              <Route path="Apoyos" element={<AdminApoyos/>}/>
+              <Route path="Archivos" element={<AdminArchivos/>}/>
+              <Route path="Usuarios" element={<AdminUsuarios/>}/>
+              <Route path="Permisos" element={<AdminPermisos/>}/>
+              <Route path="Registrar" element={<AdminCrearCuenta />}/>
+            </Route>
+          </Routes>
+        </CarpetasProvider>
       </AuthProvider>
     </BrowserRouter>
   );

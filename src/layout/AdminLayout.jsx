@@ -1,12 +1,12 @@
 import React from "react";
-import { Outlet, Navigate } from 'react-router-dom';
-import { UseAuth } from '../hooks/UseAuth.jsx';
+import { Outlet, Navigate, Link } from 'react-router-dom';
+import { useAuth } from '../hooks/UseAuth.jsx';
 
 const AdminLayout = () => {
-  const { auth, cargando } = UseAuth();
+  const { auth } = useAuth();
   return (
     <>
-      {auth.username ? (
+      {auth.name ? (
           <div className='md:min-h-screen'>
             <nav className="bg-gray-800">
               <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -25,21 +25,21 @@ const AdminLayout = () => {
                   </div>
                   <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                      <span className="text-white px-3 py-2 rounded-md text-sm font-medium"><a href="/admin/inicio">Sistema de Apoyos</a></span>
+                      <span className="text-white px-3 py-2 rounded-md text-sm font-medium"><Link to="/">Sistema de Apoyos</Link></span>
                       {/* <img className="block lg:hidden h-8 w-auto" src="" alt="Workflow"/>
                 <img className="hidden lg:block h-8 w-auto" src="" alt="Workflow"/> */}
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                       <div className="flex space-x-4">
-                        <a href="/admin/carpetas" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Carpertas</a>
+                        <Link to="/admin/carpetas" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Carpertas</Link>
+                        
+                        <Link to="/admin/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Archivos</Link>
 
-                        <a href="/admin/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Archivos</a>
+                        <Link to="/admin/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Apoyos</Link>
 
-                        <a href="/admin/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Apoyos</a>
+                        <Link to="/admin/usuarios" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Usuarios</Link>
 
-                        <a href="/admin/usuarios" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Usuarios</a>
-
-                        <a href="/admin/permisos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Permisos</a>
+                        <Link to="/admin/permisos" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Permisos</Link>
                       </div>
                     </div>
                   </div>
@@ -60,15 +60,15 @@ const AdminLayout = () => {
               <div className="sm:hidden" id="mobile-menu">
                 <div className="px-2 pt-2 pb-3 space-y-1">
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                  <a href="/admin/carpetas" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Carpertas</a>
+                  <Link to="/admin/carpetas" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Carpertas</Link>
 
-                  <a href="/admin/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Archivos</a>
+                  <Link to="/admin/archivos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Archivos</Link>
 
-                  <a href="/admin/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Apoyos</a>
+                  <Link to="/admin/apoyos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Apoyos</Link>
 
-                  <a href="/admin/usuarios" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Usuarios</a>
+                  <Link to="/admin/usuarios" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Usuarios</Link>
 
-                  <a href="/admin/permisos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Permisos</a>
+                  <Link to="/admin/permisos" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Permisos</Link>
                 </div>
               </div>
             </nav>

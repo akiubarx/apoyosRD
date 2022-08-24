@@ -29,12 +29,11 @@ const AuthProvider = ({children}) => {//Se le pasan todos los componentes para q
       try {
         const {data} = await axios(`${SiteUrl}/api/usuarios/perfil`, config)
         setAuth(data)
-        navigate('/')//Revisar este navigate
+        navigate('/admin')//Revisar este navigate
       } catch (error) {
         setAuth({})
-      } finally {
-        setCargando(false);//Cambia el State para que lea en este momento los datos y no de un error de ejecucion
       }
+      setCargando(false);//Cambia el State para que lea en este momento los datos y no de un error de ejecucion
 
     }
     autenticarUsuario();
