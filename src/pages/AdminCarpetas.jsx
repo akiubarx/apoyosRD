@@ -45,7 +45,7 @@ const AdminCarpetas = () =>{
                   <th className="text-center">Acciones</th>
                 </tr>
               </thead>
-              {carpetas.map(carpeta => (
+              {carpetas.sort((a, b) => a.id - b.id).map(carpeta => (
                 <CarpetaAdmin
                   key={carpeta.id}
                   carpeta={carpeta}
