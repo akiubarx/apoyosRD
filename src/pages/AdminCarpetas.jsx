@@ -47,7 +47,7 @@ const AdminCarpetas = () =>{
               </thead>
               {carpetas.map(carpeta => (
                 <CarpetaAdmin
-                  key={carpetas.id}
+                  key={carpeta.id}
                   carpeta={carpeta}
                   carpetas={carpetas}
                 />
