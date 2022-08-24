@@ -1,10 +1,10 @@
 import React from 'react';
-import { useCarpetas } from '../hooks/useCarpetas';
+//import { useCarpetas } from '../hooks/useCarpetas';
 import { Link } from 'react-router-dom';
 import FormularioCarpetas from '../components/FormularioCarpetas.jsx';
 
 const NuevaCarpeta = () => {
-  const { nuevaCarpeta } = useCarpetas();
+  //const { nuevaCarpeta } = useCarpetas();
 
   return (
     <>

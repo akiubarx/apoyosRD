@@ -17,7 +17,7 @@ const AdminCarpetas = () =>{
           <Link to="/admin/nueva-carpeta" className="actionButtonVer py-2 my-2">Nueva Carpeta</Link>
         </div>
         <Navbar bg="light" expand="lg" className="my-2">
-          <Container fluid>
+          <Container>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Form className="grid grid-cols-12 gap-2 w-full">
@@ -35,7 +35,7 @@ const AdminCarpetas = () =>{
         <div className="blueLine"></div>
         <div>{carpetas.length 
           ? 
-            <table striped bordered hover variant="dark" className="container table-auto border-separate border-spacing-0.5 border-slate-400">
+            <table className="container table-auto border-separate border-spacing-0.5 border-slate-400">
               <thead>
                 <tr className="bg-gray-800 text-zinc-50 font-normal">
                   <th className="text-center">ID</th>
@@ -53,8 +53,6 @@ const AdminCarpetas = () =>{
                 />
               ))}
             </table>
-
-          
           : 
           <p>No hay Carpetas aun</p>}
         </div>
