@@ -16,7 +16,7 @@ const CarpetasProvider = ({ children }) => {//Se le pasan todos los componentes 
   useEffect(() => { //Siempre se efectua como Callback
     const obtenerCarpetas = async () => {
       try {
-        const token = localStorage.getItem('token')
+        const token = sessionStorage.getItem('token')
         if (!token) return
 
         const config = {
@@ -50,7 +50,7 @@ const CarpetasProvider = ({ children }) => {//Se le pasan todos los componentes 
     
     //Pasamos a Resetear el Password del usuario
     try {
-      const token = localStorage.getItem('token')
+      const token = sessionStorage.getItem('token')
       if(!token) return
 
       const config = {
