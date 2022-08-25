@@ -32,8 +32,8 @@ const Acceso = () =>{
     //Pasamos a Resetear el Password del usuario
     try {
       const { data } = await axios.post(`${SiteUrl}/api/usuarios/login/`, { username, password })
-      localStorage.setItem('token', data.token)
-      //sessionStorage.setItem('token', data.token)
+      //localStorage.setItem('token', data.token)
+      sessionStorage.setItem('token', data.token)
       setAlerta({
         msg: data.msg,
         error: false
