@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Alerta } from '../components/Alertas.jsx';
 import useArchivos from '../hooks/useArchivos.jsx';
+import useCarpetas from '../hooks/useCarpetas.jsx';
 
 const FormularioArchivos = () => {
 
+  const { carpetas } = useCarpetas();
+
   const [nombre, setNombre] = useState('');
-  const [parent_id, setParentId] = useState('');
+  const [apoyo_id, setApoyoId] = useState('');
+  const [carpeta_id, setCarpetaId] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const [fecha_publicacion, setFechaPublicacion] = useState('');
 
@@ -16,7 +20,7 @@ const FormularioArchivos = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     //validamos que todos los campos tengan contenido
-    if ([nombre, parent_id, descripcion].includes('')) {
+    if ([nombre, descripcion].includes('')) {
       mostrarAlerta({
         msg: 'Todos los campos son obligatorios',
         error: true
@@ -24,10 +28,11 @@ const FormularioArchivos = () => {
       return
     }
     //Pasamos todo ahora al Provider ArchivosProvider
-    await submitArchivo({ nombre, parent_id, descripcion, fecha_publicacion });
+    await submitArchivo({ nombre, apoyo_id, carpeta_id, descripcion, fecha_publicacion });
     //Se limpia el state
     setNombre('');
-    setParentId('');
+    setApoyoId('');
+    setCarpetaId('');
     setDescripcion('');
     setFechaPublicacion('');
 
@@ -42,7 +47,7 @@ const FormularioArchivos = () => {
       onSubmit={handleSubmit}
       className="bg-zinc-100 py-10 px-5 md:w-3/4 rounded-lg shadow">
       <div className='my-2'>
-        <label className='uppercase block' htmlFor='nombre'>Apoyo</label>
+        <label className='uppercase block' htmlFor='nombre'>Nombre del Archivo</label>
         <input
           className='w-full mt-3 p-2 border rounded-xl'
           id='nombre'
@@ -54,15 +59,42 @@ const FormularioArchivos = () => {
       </div>
 
       <div className='my-2'>
-        <label className='uppercase block' htmlFor='parent_id'>Carpeta</label>
+        <label className='uppercase block' htmlFor='apoyo_id'>Apoyo</label>
+        <select 
+          className='w-full mt-3 p-2 border rounded-xl'
+          id='apoyo_id'
+          value={apoyo_id}
+          onChange={e => setApoyoId(e.target.value)}
+        >
+          <option value={"valor Null"}> Selecciona un Apoyo </option>
+          <option value={"valor 1"}> 1 </option>
+          <option value={"valor 2"}> 2 </option>
+          <option value={"valor 3"}> 3 </option>
+          <option value={"valor 4"}> 4 </option>
+          <option value={"valor 5"}> 5 </option>
+
+        </select>
         <input
           className='w-full mt-3 p-2 border rounded-xl'
-          id='parent_id'
-          type="number"
-          placeholder="Introduce un Id de Nivel Superior"
-          value={parent_id}
-          onChange={e => setParentId(e.target.value)}
+          id='apoyo_id'
+          type="select"
+          disabled
+          value={apoyo_id}
+          onChange={e => setApoyoId(e.target.value)}
         />
+      </div>
+
+      <div className='my-2'>
+        <label className='uppercase block' htmlFor='carpeta_id'>Carpeta</label>
+        <select
+          className='w-full mt-3 p-2 border rounded-xl'
+          id='carpeta_id'
+          value={carpeta_id}
+          onChange={e => setCarpetaId(e.target.value)}
+        >
+          <option> Selecciona una Carpeta </option>
+          {carpetas.map(carpeta =><option key={carpeta.nombre} value={carpeta.id}>{carpeta.nombre}</option>)}
+        </select>
       </div>
 
       <div className='my-2'>
@@ -70,7 +102,7 @@ const FormularioArchivos = () => {
         <input
           className='w-full mt-3 p-2 border rounded-xl'
           id='descripcion'
-          type="number"
+          type="text"
           placeholder=""
           value={descripcion}
           onChange={e => setDescripcion(e.target.value)}
