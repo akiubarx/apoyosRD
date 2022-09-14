@@ -1,11 +1,29 @@
-import React from "react";
+import { React, useState } from "react";
 import { Container, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { useArchivos } from '../hooks/useArchivos';
 import { Link } from 'react-router-dom';
 import { ArchivoAdmin } from '../components/ArchivoAdmin.jsx';
+import { Pagination } from '../components/Pagination.jsx';
 
 const AdminArchivos = () => {
   const { archivos } = useArchivos();
+  const {currentPosts} = useState();
+
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(2);
+  // Change page
+  const paginateFront = () => setCurrentPage(currentPage + 1);
+  const paginateBack = () => setCurrentPage(currentPage - 1);
+
+  
+
+  const Posts = ({ archivos, loading }) => {
+    if (loading) {
+      return <h2>Cargando...</h2>;
+    }
+  }
+  //Pagination
 
   return (
     <>
@@ -34,25 +52,36 @@ const AdminArchivos = () => {
         <div className="blueLine"></div>
         <div>{archivos.length
           ?
-          <table className="container table-auto border-separate border-spacing-0.5 border-slate-400">
-            <thead>
-              <tr className="bg-gray-800 text-zinc-50 font-normal">
-                <th className="text-center">Apoyo</th>
-                <th className="text-center">Carpeta</th>
-                <th className="text-center">Nombre</th>
-                <th className="text-center">Descripcion</th>
-                <th className="text-center">Acciones</th>
-              </tr>
-            </thead>
-            {/* {archivos.sort((a, b) => a.id - b.id).map(archivo => ( */}
-            {archivos.map(archivo => (
-              <ArchivoAdmin
-                key={archivo.id}
-                archivo={archivo}
-                //archivos={archivos}
-              />
-            ))}
-          </table>
+          <>
+            <table className="container table-auto border-separate border-spacing-0.5 border-slate-400">
+              <thead>
+                <tr className="bg-gray-800 text-zinc-50 font-normal">
+                  <th className="text-center">Apoyo</th>
+                  <th className="text-center">Carpeta</th>
+                  <th className="text-center">Nombre</th>
+                  <th className="text-center">Descripcion</th>
+                  <th className="text-center">Acciones</th>
+                </tr>
+              </thead>
+              {/* {archivos.sort((a, b) => a.id - b.id).map(archivo => ( */}
+              {archivos.map(archivo => (
+                <ArchivoAdmin
+                  key={archivo.id}
+                  archivo={archivo}
+                  //archivos={archivos}
+                  archivos={currentPosts}
+                />
+              ))}
+            </table>
+            <Posts/>
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={archivos.length}
+              paginateBack={paginateBack}
+              paginateFront={paginateFront}
+              currentPage={currentPage}
+            />
+          </>
           :
           <p>No hay Archivos aun</p>}
         </div>

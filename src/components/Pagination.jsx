@@ -1,22 +1,19 @@
-import React from "react";
-import '../css/style.css'
+import React from 'react';
 
-const Pagination = ({ posts, loading }) => {
-  if (loading) {
-    return <h2>Cargando...</h2>;
-  }
+export const Pagination = ({ postsPerPage, totalPosts, paginateFront, paginateBack, currentPage, }) => {
+
 
   return (
     <div className='py-2'>
       <div>
-        <p className='text-sm text-gray-700'>
-          Showing
-          <span className='font-medium'>{currentPage * postsPerPage - 10}</span>
-          to
-          <span className='font-medium'> {currentPage * postsPerPage} </span>
-          of
+        <p className='text-sm text-gray-700 mx-1'>
+          Mostrando del
+          <span className='font-medium mx-1'>{currentPage * postsPerPage - 2}</span>
+          al
+          <span className='font-medium mx-1'> {currentPage * postsPerPage} </span>
+          de
           <span className='font-medium'> {totalPosts} </span>
-          results
+          resultados totales
         </p>
       </div>
       <nav className='block'></nav>
@@ -32,7 +29,7 @@ const Pagination = ({ posts, loading }) => {
             href='#'
             className='relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
           >
-            <span>Previous</span>
+            <span>Anterior</span>
           </a>
 
           <a
@@ -42,7 +39,7 @@ const Pagination = ({ posts, loading }) => {
             href='#'
             className='relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
           >
-            <span>Next</span>
+            <span>Siguiente</span>
           </a>
         </nav>
       </div>
@@ -50,10 +47,25 @@ const Pagination = ({ posts, loading }) => {
   );
 }
 
-export default Pagination({
-  postsPerPage,
-  totalPosts,
-  paginateFront,
-  paginateBack,
-  currentPage,
-})
+export const Posts = ({ posts, loading }) => {
+  if (loading) {
+    return <h2>Cargando...</h2>;
+  }
+
+  return (
+    <div>
+      <ul>
+        {posts.map((post) => (
+          <li
+            key={post.id}
+            className='text-gray-700 font-semibold text-xl mb-2 border p-2'
+          >
+            {post.title}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default { Pagination, Posts};

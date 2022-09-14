@@ -4,12 +4,15 @@ import { useState } from "react";
 import { Alerta } from '../components/Alertas.jsx';
 import useArchivos from '../hooks/useArchivos.jsx';
 import useCarpetas from '../hooks/useCarpetas.jsx';
+import useApoyos from '../hooks/useApoyos.jsx';
 
 const FormularioArchivos = () => {
 
+  const { apoyos } = useApoyos();
   const { carpetas } = useCarpetas();
 
   const [nombre, setNombre] = useState('');
+  const [archivo, setArchivo] = useState('');
   const [apoyo_id, setApoyoId] = useState('');
   const [carpeta_id, setCarpetaId] = useState('');
   const [descripcion, setDescripcion] = useState('');
@@ -28,9 +31,10 @@ const FormularioArchivos = () => {
       return
     }
     //Pasamos todo ahora al Provider ArchivosProvider
-    await submitArchivo({ nombre, apoyo_id, carpeta_id, descripcion, fecha_publicacion });
+    await submitArchivo({ nombre, archivo, apoyo_id, carpeta_id, descripcion, fecha_publicacion });
     //Se limpia el state
     setNombre('');
+    setArchivo('');
     setApoyoId('');
     setCarpetaId('');
     setDescripcion('');
@@ -59,6 +63,18 @@ const FormularioArchivos = () => {
       </div>
 
       <div className='my-2'>
+        <label className='uppercase block' htmlFor='archivo'>Carga un Archivo</label>
+        <input
+          className='w-full mt-3 p-2 border rounded-xl'
+          id='archivo'
+          type="file"
+          placeholder="Introduce el Archivo"
+          value={archivo}
+          onChange={e => setArchivo(e.target.value)}
+        />
+      </div>
+
+      <div className='my-2'>
         <label className='uppercase block' htmlFor='apoyo_id'>Apoyo</label>
         <select 
           className='w-full mt-3 p-2 border rounded-xl'
@@ -66,22 +82,9 @@ const FormularioArchivos = () => {
           value={apoyo_id}
           onChange={e => setApoyoId(e.target.value)}
         >
-          <option value={"valor Null"}> Selecciona un Apoyo </option>
-          <option value={"valor 1"}> 1 </option>
-          <option value={"valor 2"}> 2 </option>
-          <option value={"valor 3"}> 3 </option>
-          <option value={"valor 4"}> 4 </option>
-          <option value={"valor 5"}> 5 </option>
-
+          <option> Selecciona un Apoyo </option>
+          {apoyos.map(apoyo =><option key={apoyo.nombre} value={apoyo.id}>{apoyo.nombre}</option>)}
         </select>
-        <input
-          className='w-full mt-3 p-2 border rounded-xl'
-          id='apoyo_id'
-          type="select"
-          disabled
-          value={apoyo_id}
-          onChange={e => setApoyoId(e.target.value)}
-        />
       </div>
 
       <div className='my-2'>

@@ -10,6 +10,21 @@ const ArchivosProvider = ({ children }) => {//Se le pasan todos los componentes 
   const [archivos, setArchivos] = useState([]);
   const [alerta, setAlerta] = useState({});
 
+  //Paginación
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(2);
+  //Paginación
+  //Pagination
+
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = archivos.slice(indexOfFirstPost, indexOfLastPost);
+  // Change page
+  const paginateFront = () => setCurrentPage(currentPage + 1);
+  const paginateBack = () => setCurrentPage(currentPage - 1);
+
   const navigate = useNavigate();
 
   //Consultando los archivos
@@ -26,8 +41,10 @@ const ArchivosProvider = ({ children }) => {//Se le pasan todos los componentes 
           }
         }
 
+        setLoading(true);
         const { data } = await axios(`${SiteUrl}/api/archivos/`, config) //Se para la url del backend, la data del 'submit' y la validacion del 'config'
         setArchivos(data)
+        setLoading(false);
       } catch (error) {
         console.log(error)
       }
@@ -84,16 +101,22 @@ const ArchivosProvider = ({ children }) => {//Se le pasan todos los componentes 
 
   return (
     //Por medio del value mandamos los valores al .Provider // Provider siemptre requiere un Proop
-    <ArchivosContext.Provider
-      value={{
-        archivos,
-        mostrarAlerta,
-        alerta,
-        submitArchivo,
-      }}
-    >
-      {children}
-    </ArchivosContext.Provider>
+    <>
+      <ArchivosContext.Provider
+        value={{
+          archivos,
+          mostrarAlerta,
+          alerta,
+          submitArchivo,
+          loading,
+          currentPosts,
+          paginateFront,
+          paginateBack,
+        }}
+      >
+        {children}
+      </ArchivosContext.Provider>
+    </>
   );
 }
 
